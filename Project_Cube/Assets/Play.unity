@@ -317,6 +317,7 @@ MonoBehaviour:
   _light: {fileID: 373327951}
   _maxLight: 1.2
   _minLight: 0.3
+  _gameTime: 0
 --- !u!1001 &286430994
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1037,7 +1038,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: c857dd5e681a8fc4284548268fbb7e1c,
     type: 3}
-  m_Color: {r: 0.028539198, g: 0.14758849, b: 0.3490566, a: 0}
+  m_Color: {r: 0.5294118, g: 0.8666667, b: 0.9607843, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1222,7 +1223,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.5310609, g: 0.8666667, b: 0.9622642, a: 0}
+  m_BackGroundColor: {r: 0.02745098, g: 0.14901961, b: 0.34901962, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
