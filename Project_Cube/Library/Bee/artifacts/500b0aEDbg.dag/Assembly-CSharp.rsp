@@ -359,6 +359,8 @@
 -r:"Library/Bee/artifacts/500b0aEDbg.dag/UnityEngine.SpatialTracking.ref.dll"
 -r:"Library/Bee/artifacts/500b0aEDbg.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/500b0aEDbg.dag/UnityEngine.XR.LegacyInputHelpers.ref.dll"
+"Assets/Scripts/Cloud.cs"
+"Assets/Scripts/FactoryCloud.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/Rotate.cs"
 "Assets/Scripts/TimeSet.cs"

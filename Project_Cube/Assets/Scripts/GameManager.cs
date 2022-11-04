@@ -72,8 +72,6 @@ public class GameManager : MonoBehaviour {
 
         transform.eulerAngles = trCameraSet.eulerAngles;
 
-        return;
-
         RaycastHit hit;
         Ray ray = physicsCamera.ScreenPointToRay(Input.mousePosition);
 

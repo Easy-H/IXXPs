@@ -5,22 +5,25 @@ using UnityEngine;
 public class Unit : MonoBehaviour
 {
 
-    [SerializeField] MonoBehaviour _onDay;
-    [SerializeField] MonoBehaviour _onNight;
+    [SerializeField] MonoBehaviour[] _onDays;
+    [SerializeField] MonoBehaviour[] _onNights;
 
     [SerializeField] Zone zone = null;
     [SerializeField] float height = 1;
 
     private void Update()
     {
-        if (_onDay) {
-            if (TimeSet.Instance.IsDay()) _onDay.enabled = true;
-            else _onDay.enabled = false;
-        }
-        if (_onNight)
+        bool state = TimeSet.Instance.IsDay();
+        for (int i = 0; i < _onDays.Length; i++)
         {
-            if (TimeSet.Instance.IsDay()) _onNight.enabled = false;
-            else _onNight.enabled = true;
+            _onDays[i].enabled = state;
+
+        }
+    
+        for (int i = 0; i<_onNights.Length; i++)
+        {
+            _onNights[i].enabled = !state;
+
         }
     }
 

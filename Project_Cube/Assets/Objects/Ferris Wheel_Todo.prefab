@@ -311,8 +311,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e21b7ad280fb609478e50a7b3f8b2046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _onDay: {fileID: 114558451072650356}
-  _onNight: {fileID: 0}
+  _onDays:
+  - {fileID: 114558451072650356}
+  _onNights: []
   zone: {fileID: 3894568695139144872}
   height: 2.4
 --- !u!1 &1461114485147104
