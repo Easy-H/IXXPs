@@ -14,7 +14,7 @@ public class EarnData : MonoBehaviour
     public Vector3 _startPos;
     public Vector3 _up;
 
-    private void Awake()
+    private void Start()
     {
         _startPos = transform.localPosition;
         _up = _standard.up;

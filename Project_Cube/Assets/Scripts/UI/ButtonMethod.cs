@@ -3,7 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ButtonMethod: MonoBehaviour {
+public class ButtonMethod : MonoBehaviour {
+
+    public void OpenPanel(int i)
+    {
+        UiManager.Instance.OpenPanel(i);
+    }
+    public void ClosePanel(int i) {
+        UiManager.Instance.ClosePanel(i);
+    }
+
+    public void UndoBuy()
+    {
+        GameManager.Instance._isEditing = false;
+
+    }
+
+    public void EndEdit() {
+        GameManager.Instance._isEditing = false;
+    }
 
     public void ResetScene() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

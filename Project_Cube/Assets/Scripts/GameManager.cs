@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour {
         }
 
         if (Input.GetMouseButtonUp(0)) {
-            if (_moveAmout < 0.2f)
+            if (_moveAmout < 0.2f && !_isEditing)
                 touch = true;
             //MouseRelease();
         }

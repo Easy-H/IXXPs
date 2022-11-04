@@ -10,6 +10,19 @@ public class UiManager : MonoBehaviour {
     
     [SerializeField] UiAnimationGenerator[] actions = null;
 
+    [SerializeField] Image[] panels;
+
+    public void ClosePanel(int i)
+    {
+        panels[i].gameObject.SetActive(false);
+
+    }
+
+    public void OpenPanel(int i)
+    {
+        panels[i].gameObject.SetActive(true);
+    }
+
     private void Start() {
         Instance = this;
     }

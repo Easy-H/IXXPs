@@ -7,12 +7,13 @@ public class SetAxis : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.eulerAngles = GameManager.Instance.Axis;
+        Set();
     }
 
     // Update is called once per frame
-    void Update()
+    public void Set()
     {
-        
+        transform.eulerAngles = GameManager.Instance.Axis;
+
     }
 }
