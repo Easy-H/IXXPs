@@ -12,12 +12,11 @@ public class Unit : MonoBehaviour
 
     [SerializeField] bool _activeOnDay;
     [SerializeField] int _earnMoney;
-
-    public bool state;
+    [SerializeField] int _earnExp;
 
     private void LateUpdate()
     {
-        state = (TimeSet.Instance.IsDay() == _activeOnDay);
+        bool state = (TimeSet.Instance.IsDay() == _activeOnDay);
         
         for (int i = 0; i < _onActive.Length; i++)
         {
@@ -28,6 +27,7 @@ public class Unit : MonoBehaviour
         if (state) {
             if (GameManager.touch) {
                 GameManager.money += _earnMoney;
+                EXP.Instance.AddExp(_earnExp);
             }
         }
 

@@ -453,6 +453,7 @@ MonoBehaviour:
   _height: 1
   _activeOnDay: 1
   _earnMoney: 1000
+  _earnExp: 10
   state: 0
 --- !u!1001 &4217598250152684437
 PrefabInstance:
