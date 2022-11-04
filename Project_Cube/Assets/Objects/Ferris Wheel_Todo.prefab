@@ -311,11 +311,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e21b7ad280fb609478e50a7b3f8b2046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _onDays:
+  _onActive:
   - {fileID: 114558451072650356}
-  _onNights: []
-  zone: {fileID: 3894568695139144872}
-  height: 2.4
+  _height: 1
+  _activeOnDay: 0
+  _earnMoney: 0
+  state: 1
 --- !u!1 &1461114485147104
 GameObject:
   m_ObjectHideFlags: 0
@@ -914,18 +915,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5969338420324623327}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3894568695139144872 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7267420233255253879, guid: 7ad6001db39d29b4eb69d00803800b81,
-    type: 3}
-  m_PrefabInstance: {fileID: 5969338420324623327}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4c67d9113afcd6448e3068aa14deeaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &8992071046003045115
 PrefabInstance:
   m_ObjectHideFlags: 0

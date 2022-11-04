@@ -5,41 +5,47 @@ using UnityEngine;
 public class Unit : MonoBehaviour
 {
 
-    [SerializeField] MonoBehaviour[] _onDays;
-    [SerializeField] MonoBehaviour[] _onNights;
+    [SerializeField] MonoBehaviour[] _onActive;
 
-    [SerializeField] Zone zone = null;
-    [SerializeField] float height = 1;
+    //[SerializeField] Zone zone = null;
+    [SerializeField] float _height = 1;
 
-    private void Update()
+    [SerializeField] bool _activeOnDay;
+    [SerializeField] int _earnMoney;
+
+    public bool state;
+
+    private void LateUpdate()
     {
-        bool state = TimeSet.Instance.IsDay();
-        for (int i = 0; i < _onDays.Length; i++)
+        state = (TimeSet.Instance.IsDay() == _activeOnDay);
+        
+        for (int i = 0; i < _onActive.Length; i++)
         {
-            _onDays[i].enabled = state;
+            _onActive[i].enabled = state;
 
         }
-    
-        for (int i = 0; i<_onNights.Length; i++)
-        {
-            _onNights[i].enabled = !state;
 
+        if (state) {
+            if (GameManager.touch) {
+                GameManager.money += _earnMoney;
+            }
         }
+
     }
 
     public void Selected(Transform parent)
     {
         transform.parent = parent;
-        zone.Set();
+        //zone.Set();
     }
 
     public void Free() {
         transform.parent = null;
-        zone.Clear();
+        //zone.Clear();
     }
 
     public float GetSize() {
-        return height;
+        return _height;
     }
 
 }

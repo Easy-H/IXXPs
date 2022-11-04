@@ -500,6 +500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d58d1b02b52b4d33bc70b57c86dee1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _moneyText: {fileID: 900874239}
   trCameraSet: {fileID: 1241919440}
   trCollider: {fileID: 449148861}
   rbCameraSet: {fileID: 460447652}
@@ -2231,7 +2232,7 @@ GameObject:
   - component: {fileID: 900874239}
   - component: {fileID: 900874238}
   m_Layer: 5
-  m_Name: Money
+  m_Name: MoneyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2665,7 +2666,7 @@ GameObject:
   - component: {fileID: 1134791952}
   - component: {fileID: 1134791951}
   m_Layer: 5
-  m_Name: Money
+  m_Name: MoneyBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

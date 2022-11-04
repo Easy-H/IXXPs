@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEditor.PlayerSettings;
 
 public class GameManager : MonoBehaviour {
 
     public static GameManager Instance { get; private set; }
 
-    public static int money;
+    public static int money = 0;
+    public static bool touch;
+
+    [SerializeField] Text _moneyText;
 
     [SerializeField] Transform trCameraSet;
     [SerializeField] Transform trCollider;
@@ -22,6 +26,8 @@ public class GameManager : MonoBehaviour {
 
     public bool _isEditing;
 
+    float _moveAmout;
+
     // Use this for initialization
     void Start() {
         _isEditing = false;
@@ -32,8 +38,12 @@ public class GameManager : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        if (_isEditing && _selectedUnit && Input.GetMouseButton(0)) {
+        _moneyText.text = money.ToString();
 
+        touch = false;
+
+        if (_isEditing && _selectedUnit && Input.GetMouseButton(0)) {
+            
             if (Input.GetMouseButtonUp(0)) {
                 _selectedUnit = null;
                 return;
@@ -63,6 +73,8 @@ public class GameManager : MonoBehaviour {
         }
 
         if (Input.GetMouseButtonUp(0)) {
+            if (_moveAmout < 0.2f)
+                touch = true;
             //MouseRelease();
         }
 
@@ -71,6 +83,8 @@ public class GameManager : MonoBehaviour {
     void MousePress() {
 
         transform.eulerAngles = trCameraSet.eulerAngles;
+
+        _moveAmout = 0;
 
         RaycastHit hit;
         Ray ray = physicsCamera.ScreenPointToRay(Input.mousePosition);
@@ -110,6 +124,8 @@ public class GameManager : MonoBehaviour {
                 }
 
                 rbCameraSet.angularVelocity = Vector3.up * rotateFactor;
+
+                _moveAmout += Mathf.Abs(rotateFactor);
 
                 _referenceAngle = angle;
 
