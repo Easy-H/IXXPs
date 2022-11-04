@@ -313,10 +313,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _onActive:
   - {fileID: 114558451072650356}
+  _earnData: {fileID: 0}
   _height: 1
-  _activeOnDay: 0
-  _earnMoney: 0
-  state: 1
+  _activeOnDay: 1
+  _earnMoney: 10
+  _earnExp: 2
 --- !u!1 &1461114485147104
 GameObject:
   m_ObjectHideFlags: 0

@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour {
     // Use this for initialization
     void Awake() {
         _isEditing = false;
+        ShopButton.shops = new List<ShopButton>();
         Instance = this;
 
     }

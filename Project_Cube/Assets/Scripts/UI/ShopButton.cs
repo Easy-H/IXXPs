@@ -8,7 +8,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 public class ShopButton : MonoBehaviour
 {
 
-    static List<ShopButton> shops = new List<ShopButton>();
+    public static List<ShopButton> shops = new List<ShopButton>();
 
     [SerializeField] int _needLevel;
 

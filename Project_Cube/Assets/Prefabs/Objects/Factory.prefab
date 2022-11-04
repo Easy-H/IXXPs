@@ -453,8 +453,8 @@ MonoBehaviour:
   _earnData: {fileID: 0}
   _height: 1
   _activeOnDay: 1
-  _earnMoney: 1000
-  _earnExp: 10
+  _earnMoney: 10
+  _earnExp: 2
 --- !u!1001 &4217598250152684437
 PrefabInstance:
   m_ObjectHideFlags: 0

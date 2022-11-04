@@ -44,7 +44,7 @@ public class TimeSet : MonoBehaviour {
 
         _alpha = (Mathf.Abs(timeAngle) - 60f) / 60;
 
-        _background.color = new Color(color.r, color.g, color.b, _alpha);
+        _background.color = new Color(color.r, color.g, color.b, Mathf.Clamp(_alpha, 0.2f, 0.9f));
 
         _light.intensity = Mathf.Clamp(_alpha, _minLight, _maxLight);
 
