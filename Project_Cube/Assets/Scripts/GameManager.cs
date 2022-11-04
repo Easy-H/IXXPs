@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
 
     public static int money = 0;
     public static bool touch;
+    public Vector3 Axis;
 
     [SerializeField] Text _moneyText;
 
@@ -29,7 +30,7 @@ public class GameManager : MonoBehaviour {
     float _moveAmout;
 
     // Use this for initialization
-    void Start() {
+    void Awake() {
         _isEditing = false;
         Instance = this;
 

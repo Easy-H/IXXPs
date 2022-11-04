@@ -7,6 +7,8 @@ public class Unit : MonoBehaviour
 
     [SerializeField] MonoBehaviour[] _onActive;
 
+    [SerializeField] EarnData _earnData;
+
     //[SerializeField] Zone zone = null;
     [SerializeField] float _height = 1;
 
@@ -28,6 +30,8 @@ public class Unit : MonoBehaviour
             if (GameManager.touch) {
                 GameManager.money += _earnMoney;
                 EXP.Instance.AddExp(_earnExp);
+                if (_earnData)
+                    _earnData.PopUp(_earnMoney, _earnExp);
             }
         }
 
