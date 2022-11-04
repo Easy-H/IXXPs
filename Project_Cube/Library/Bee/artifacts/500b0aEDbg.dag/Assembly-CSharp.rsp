@@ -27,6 +27,7 @@
 -define:UNITY_2021_2_OR_NEWER
 -define:UNITY_2021_3_OR_NEWER
 -define:UNITY_INCLUDE_TESTS
+-define:UNITY_ANALYTICS
 -define:USE_SEARCH_ENGINE_API
 -define:USE_SEARCH_TABLE
 -define:USE_SEARCH_MODULE
@@ -358,6 +359,8 @@
 -r:"Library/Bee/artifacts/500b0aEDbg.dag/UnityEngine.SpatialTracking.ref.dll"
 -r:"Library/Bee/artifacts/500b0aEDbg.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/500b0aEDbg.dag/UnityEngine.XR.LegacyInputHelpers.ref.dll"
+"Assets/LowPoly Assets/Demo/low-poly-water/Scripts/Water.cs"
+"Assets/LowPoly Assets/Demo/Scripts/SimpleCameraController.cs"
 "Assets/Scripts/Cloud.cs"
 "Assets/Scripts/EarnData.cs"
 "Assets/Scripts/EXP.cs"

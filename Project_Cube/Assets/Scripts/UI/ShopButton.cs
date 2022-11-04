@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Purchasing;
 using System.Runtime.InteropServices.WindowsRuntime;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
 public class ShopButton : MonoBehaviour
 {
@@ -14,6 +17,9 @@ public class ShopButton : MonoBehaviour
 
     [SerializeField] Unit _obj;
     [SerializeField] int _price;
+
+    [SerializeField] UnityEvent[] _canBuyEvent;
+    [SerializeField] UnityEvent[] _canNotBuyEvent;
 
     [SerializeField] RawImage _img;
 
@@ -46,10 +52,23 @@ public class ShopButton : MonoBehaviour
     {
         if (!_canBuy)
             return;
-        Unit created = Instantiate(_obj);
-        GameManager.money -= _price;
 
+        if (GameManager.money < _price) {
+            for (int i = 0; i < _canNotBuyEvent.Length; i++) {
+                _canNotBuyEvent[i].Invoke();
+            }
+            return;
+        }
+        Unit created = Instantiate(_obj);
+
+        GameManager.money -= _price;
         GameManager.Instance.StartEditing(created);
+
+
+        for (int i = 0; i < _canBuyEvent.Length; i++)
+        {
+            _canBuyEvent[i].Invoke();
+        }
 
     }
 }
