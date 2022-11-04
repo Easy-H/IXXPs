@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-
+    [SerializeField] Theme _mainTheme;
     [SerializeField] MonoBehaviour[] _onActive;
 
     [SerializeField] EarnData _earnData;

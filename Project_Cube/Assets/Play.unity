@@ -785,7 +785,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d58d1b02b52b4d33bc70b57c86dee1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _onMain: 1
   Axis: {x: 0, y: 0, z: 30}
+  _planetTheme: 0
   _moneyText: {fileID: 900874239}
   trCameraSet: {fileID: 1241919440}
   trCollider: {fileID: 449148861}
@@ -1823,6 +1825,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 602894371}
+        m_TargetAssemblyTypeName: ButtonMethod, Assembly-CSharp
+        m_MethodName: OnMain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &602894369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2563,7 +2577,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2087926343}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.33333334
+  m_Size: 0.3333333
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2719,7 +2733,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.3, y: 0}
   m_AnchorMax: {x: 0.7, y: 1}
-  m_AnchoredPosition: {x: -0.0000076293945, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1134791951
@@ -2982,6 +2996,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1470230568}
+        m_TargetAssemblyTypeName: ButtonMethod, Assembly-CSharp
+        m_MethodName: NotOnMain
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3379,6 +3405,7 @@ GameObject:
   - component: {fileID: 1470230564}
   - component: {fileID: 1470230563}
   - component: {fileID: 1470230567}
+  - component: {fileID: 1470230568}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3487,6 +3514,18 @@ MonoBehaviour:
   panels:
   - {fileID: 158784078}
   - {fileID: 1117716338}
+--- !u!114 &1470230568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470230562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fc102ecf1b4e8f499df6b4a460d967a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!850595691 &1518207147
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -4340,7 +4379,7 @@ GameObject:
   - component: {fileID: 2144706175}
   - component: {fileID: 2144706178}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4427,6 +4466,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2144706178}
+        m_TargetAssemblyTypeName: ButtonMethod, Assembly-CSharp
+        m_MethodName: OnMain
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

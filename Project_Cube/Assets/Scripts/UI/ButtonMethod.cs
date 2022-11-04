@@ -13,6 +13,15 @@ public class ButtonMethod : MonoBehaviour {
         UiManager.Instance.ClosePanel(i);
     }
 
+    public void NotOnMain()
+    {
+        GameManager.Instance._onMain = false;
+    }
+    public void OnMain()
+    {
+        GameManager.Instance._onMain = true;
+    }
+
     public void UndoBuy()
     {
         GameManager.Instance._isEditing = false;

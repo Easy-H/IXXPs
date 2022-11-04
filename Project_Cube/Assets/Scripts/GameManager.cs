@@ -4,13 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using static UnityEditor.PlayerSettings;
 
+public enum Theme{ 
+   Green, Yellow, White
+}
+
 public class GameManager : MonoBehaviour {
 
     public static GameManager Instance { get; private set; }
 
+    public bool _onMain = true;
+
     public static int money = 0;
     public static bool touch;
     public Vector3 Axis;
+
+    public Theme _planetTheme;
 
     [SerializeField] Text _moneyText;
 
@@ -75,7 +83,7 @@ public class GameManager : MonoBehaviour {
         }
 
         if (Input.GetMouseButtonUp(0)) {
-            if (_moveAmout < 0.2f && !_isEditing)
+            if (_moveAmout < 0.2f && !_isEditing && _onMain)
                 touch = true;
             //MouseRelease();
         }
