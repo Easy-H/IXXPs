@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Analytics;
 
 public class TimeSet : MonoBehaviour {
@@ -12,6 +13,8 @@ public class TimeSet : MonoBehaviour {
 
     [SerializeField] float _maxLight;
     [SerializeField] float _minLight;
+
+    [SerializeField] Text _timeText;
 
     float _alpha;
 
@@ -33,6 +36,9 @@ public class TimeSet : MonoBehaviour {
         
         if (timeAngle > 180) timeAngle -= 360;
         else if (timeAngle < -180) timeAngle += 360;
+
+        _gameTime = (timeAngle + 360) % 360;
+        _timeText.text = ((int)_gameTime / 15).ToString("00") + ":" + (((int)((_gameTime % 15) * 0.4f)) * 10).ToString("00");
 
         Color color = _background.color;
 
