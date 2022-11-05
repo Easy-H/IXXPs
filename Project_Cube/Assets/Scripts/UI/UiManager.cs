@@ -12,9 +12,28 @@ public class UiManager : MonoBehaviour {
 
     [SerializeField] Image[] panels;
 
+    [SerializeField] Image _messageBox;
+    [SerializeField] Text _message;
+
     public void ClosePanel(int i)
     {
         panels[i].gameObject.SetActive(false);
+
+    }
+
+    public void PrintMessage(string message)
+    {
+        _messageBox.gameObject.SetActive(true);
+        _message.text = message;
+
+        Invoke("PopMessage", 1f);
+
+    }
+
+
+    void PopMessage()
+    {
+        _messageBox.gameObject.SetActive(false);
 
     }
 

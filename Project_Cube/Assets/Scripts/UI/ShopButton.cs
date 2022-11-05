@@ -8,8 +8,10 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 
-public class ShopButton : MonoBehaviour
-{
+public class ShopButton : MonoBehaviour {
+
+    [SerializeField] Color _canBuyColor;
+    [SerializeField] Color _canNotBuyColor;
 
     public static List<ShopButton> shops = new List<ShopButton>();
 
@@ -18,10 +20,10 @@ public class ShopButton : MonoBehaviour
     [SerializeField] Unit _obj;
     [SerializeField] int _price;
 
-    [SerializeField] UnityEvent[] _canBuyEvent;
-    [SerializeField] UnityEvent[] _canNotBuyEvent;
+    [SerializeField] UnityEvent _canBuyEvent;
+    [SerializeField] UnityEvent _canNotBuyEvent;
 
-    [SerializeField] RawImage _img;
+    [SerializeField] Image _img;
 
     public bool _canBuy;
 
@@ -31,20 +33,23 @@ public class ShopButton : MonoBehaviour
         shops.Add(this);
     }
 
-    public static void LevelUp() {
+    public static void LevelUp()
+    {
         for (int i = 0; i < shops.Count; i++)
         {
             shops[i].Set();
         }
     }
 
-    void Set() {
-        if (EXP.Instance._level + 1 < _needLevel) {
-            _img.color = Color.gray;
+    void Set()
+    {
+        if (EXP.Instance._level + 1 < _needLevel)
+        {
+            _img.color = _canNotBuyColor;
             _canBuy = false;
             return;
         }
-        _img.color = Color.white;
+        _img.color = _canBuyColor;
         _canBuy = true;
     }
 
@@ -53,22 +58,19 @@ public class ShopButton : MonoBehaviour
         if (!_canBuy)
             return;
 
-        if (GameManager.money < _price) {
-            for (int i = 0; i < _canNotBuyEvent.Length; i++) {
-                _canNotBuyEvent[i].Invoke();
-            }
+        if (GameManager.money < _price)
+        {
+            _canNotBuyEvent.Invoke();
             return;
         }
         Unit created = Instantiate(_obj);
 
-        GameManager.money -= _price;
-        GameManager.Instance.StartEditing(created);
+        created.transform.localScale = created.transform.localScale * Random.Range(.9f, 1.1f);
 
+        GameManager.Instance.StartEditing(created, _price);
 
-        for (int i = 0; i < _canBuyEvent.Length; i++)
-        {
-            _canBuyEvent[i].Invoke();
-        }
+        _canBuyEvent.Invoke();
+
 
     }
 }

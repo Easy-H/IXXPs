@@ -13,6 +13,11 @@ public class ButtonMethod : MonoBehaviour {
         UiManager.Instance.ClosePanel(i);
     }
 
+    public void PrintMessage(string message) {
+        UiManager.Instance.PrintMessage(message);
+    }
+
+
     public void NotOnMain()
     {
         GameManager.Instance._onMain = false;
@@ -24,12 +29,12 @@ public class ButtonMethod : MonoBehaviour {
 
     public void UndoBuy()
     {
-        GameManager.Instance._isEditing = false;
+        GameManager.Instance.UndoBuy();
 
     }
 
     public void EndEdit() {
-        GameManager.Instance._isEditing = false;
+        GameManager.Instance.EndEdit();
     }
 
     public void ResetScene() {

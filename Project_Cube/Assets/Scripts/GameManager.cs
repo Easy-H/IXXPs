@@ -14,7 +14,9 @@ public class GameManager : MonoBehaviour {
 
     public bool _onMain = true;
 
-    public static int money = 0;
+    public static int money = 1000;
+    int _unitPrice;
+
     public static bool touch;
     public Vector3 Axis;
 
@@ -106,7 +108,6 @@ public class GameManager : MonoBehaviour {
 
         }
 
-
     }
 
     void MouseHold() {
@@ -170,10 +171,25 @@ public class GameManager : MonoBehaviour {
 
     }
 
-    public void StartEditing(Unit selected) {
+    public void StartEditing(Unit selected, int price) {
         _isEditing = true;
+        money -= price;
         _selectedUnit = selected;
+        _unitPrice = price;
         transform.eulerAngles = trCameraSet.eulerAngles;
+    }
+
+    public void EndEdit()
+    {
+        _isEditing = false;
+        _onMain = true;
+    }
+
+    public void UndoBuy() {
+        _isEditing = false;
+        _onMain = true;
+        Destroy(_selectedUnit.gameObject);
+        money += _unitPrice;
     }
 
 }
