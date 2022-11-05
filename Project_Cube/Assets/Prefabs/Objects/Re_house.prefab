@@ -96,7 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainTheme: 0
-  _onActive: []
+  _onActive:
+  - {fileID: 5402293516525018391}
   _earnData: {fileID: 6886567122973981856}
   _height: 1
   _activeOnDay: 0

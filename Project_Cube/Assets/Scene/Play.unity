@@ -2928,23 +2928,23 @@ PrefabInstance:
     - target: {fileID: 1254526736131210637, guid: 1ccf8f8486938774d96a1f77ca8afd52,
         type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1254526736131210637, guid: 1ccf8f8486938774d96a1f77ca8afd52,
         type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1254526736131210637, guid: 1ccf8f8486938774d96a1f77ca8afd52,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.4811321
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1254526736131210637, guid: 1ccf8f8486938774d96a1f77ca8afd52,
         type: 3}
       propertyPath: m_Texture
       value: 
-      objectReference: {fileID: 2800000, guid: d2933904a0dfbe04989ab8f102b9c0c9, type: 3}
+      objectReference: {fileID: 2800000, guid: c3add87508092d144b75c480c4ad5d23, type: 3}
     - target: {fileID: 7286994898887280112, guid: 1ccf8f8486938774d96a1f77ca8afd52,
         type: 3}
       propertyPath: m_AnchoredPosition.y
