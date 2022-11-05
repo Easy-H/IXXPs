@@ -68,7 +68,7 @@ MonoBehaviour:
   _height: 1
   _activeOnDay: 1
   _earnMoney: 5
-  _earnExp: 10
+  _earnExp: 20
 --- !u!1 &1628901599821062
 GameObject:
   m_ObjectHideFlags: 0

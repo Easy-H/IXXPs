@@ -8,7 +8,8 @@ public class EXP : MonoBehaviour
     public static EXP Instance { get; private set; }
 
     [SerializeField] Text _levelText;
-    public int _level;
+    [SerializeField] Image _fillNextLevel;
+    public int _level = 1;
 
     [SerializeField] int[] _needExp;
     int _expAmount = 0;
@@ -16,15 +17,23 @@ public class EXP : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        float t = (float)(_expAmount - _needExp[_level - 1]) / (float)(_needExp[_level] - _needExp[_level - 1]);
+
+        _fillNextLevel.fillAmount = t;
     }
 
     public void AddExp(int amount) {
         _expAmount += amount;
+
         if (_needExp[_level] <= _expAmount) {
             _level++;
-            _levelText.text = (_level + 1).ToString();
+            _levelText.text = (_level).ToString();
             ShopButton.LevelUp();
         }
+
+        float t = (float)(_expAmount - _needExp[_level - 1]) / (float)(_needExp[_level] - _needExp[_level - 1]);
+
+        _fillNextLevel.fillAmount = t;
     }
 
 }

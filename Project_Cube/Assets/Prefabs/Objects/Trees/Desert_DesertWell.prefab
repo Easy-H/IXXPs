@@ -76,7 +76,7 @@ MonoBehaviour:
   _height: 1
   _activeOnDay: 0
   _earnMoney: 5
-  _earnExp: 10
+  _earnExp: 20
 --- !u!1001 &2316781103554067214
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -48,7 +48,7 @@ public class ShopButton : MonoBehaviour {
 
     void Set()
     {
-        if (EXP.Instance._level + 1 < _needLevel)
+        if (EXP.Instance._level < _needLevel)
         {
             _img.color = _canNotBuyColor;
             _needLevelText.color = Color.red;
