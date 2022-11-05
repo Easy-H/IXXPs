@@ -14,7 +14,9 @@ public class TimeSet : MonoBehaviour {
     [SerializeField] float _maxLight;
     [SerializeField] float _minLight;
 
-    [SerializeField] Text _timeText;
+    [SerializeField] Text _timeHourTenText;
+    [SerializeField] Text _timeHourOneText;
+    [SerializeField] Text _timeMinuteText;
 
     float _alpha;
 
@@ -38,7 +40,13 @@ public class TimeSet : MonoBehaviour {
         else if (timeAngle < -180) timeAngle += 360;
 
         _gameTime = (timeAngle + 360) % 360;
-        _timeText.text = ((int)_gameTime / 15).ToString("00") + ":" + (((int)((_gameTime % 15) * 0.4f)) * 10).ToString("00");
+
+        int planetTime = (int)(_gameTime / 15);
+
+        _timeHourTenText.text = (planetTime / 10).ToString();
+        _timeHourOneText.text = (planetTime % 10).ToString();
+            
+        _timeMinuteText.text = (((int)((_gameTime % 15) * 0.4f))).ToString();
 
         Color color = _background.color;
 

@@ -13,6 +13,9 @@ public class ShopButton : MonoBehaviour {
     [SerializeField] Color _canBuyColor;
     [SerializeField] Color _canNotBuyColor;
 
+    [SerializeField] Text _needLevelText;
+    [SerializeField] Text _moneyAmountText;
+
     public static List<ShopButton> shops = new List<ShopButton>();
 
     [SerializeField] int _needLevel;
@@ -30,6 +33,8 @@ public class ShopButton : MonoBehaviour {
     private void Start()
     {
         Set();
+        _needLevelText.text = _needLevel.ToString();
+        _moneyAmountText.text = _price.ToString();
         shops.Add(this);
     }
 
@@ -46,10 +51,12 @@ public class ShopButton : MonoBehaviour {
         if (EXP.Instance._level + 1 < _needLevel)
         {
             _img.color = _canNotBuyColor;
+            _needLevelText.color = Color.red;
             _canBuy = false;
             return;
         }
         _img.color = _canBuyColor;
+        _needLevelText.color = Color.clear;
         _canBuy = true;
     }
 
