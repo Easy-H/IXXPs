@@ -53,9 +53,5 @@ public class ButtonMethod : MonoBehaviour {
         Application.OpenURL(link);
     }
 
-    public void Change2EditMode() {
-        GameManager.Instance._isEditing = true;
-    }
-
 
 }

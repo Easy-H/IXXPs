@@ -794,7 +794,6 @@ MonoBehaviour:
   trCollider: {fileID: 449148861}
   rbCameraSet: {fileID: 460447652}
   physicsCamera: {fileID: 350517800}
-  _isEditing: 1
 --- !u!20 &350517800
 Camera:
   m_ObjectHideFlags: 0

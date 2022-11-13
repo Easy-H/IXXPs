@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 using static UnityEditor.PlayerSettings;
 
-public enum Theme{ 
-   Green, Yellow, White
+public enum Theme {
+    Green, Yellow, White
 }
 
 public class GameManager : MonoBehaviour {
@@ -25,46 +26,45 @@ public class GameManager : MonoBehaviour {
     [SerializeField] Text _moneyText;
 
     [SerializeField] Transform trCameraSet;
-    [SerializeField] Transform trCollider;
-
     [SerializeField] Rigidbody rbCameraSet;
 
-    [SerializeField] Camera physicsCamera;
+    Camera physicsCamera;
 
     Unit _selectedUnit;
 
     float _referenceAngle;
-
-    public bool _isEditing;
-
-    float _moveAmout;
+    float _moveAmount;
 
     // Use this for initialization
-    void Awake() {
-        _isEditing = false;
+    void Awake()
+    {
         ShopButton.shops = new List<ShopButton>();
         Instance = this;
 
     }
 
+    private void Start()
+    {
+        physicsCamera = gameObject.GetComponent<Camera>();
+        _moveAmount = -1;
+    }
+
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
 
         _moneyText.text = money.ToString();
 
         touch = false;
 
-        if (_isEditing && _selectedUnit && Input.GetMouseButton(0)) {
-            
-            if (Input.GetMouseButtonUp(0)) {
-                _selectedUnit = null;
-                return;
-            }
+        if (_selectedUnit && Input.GetMouseButton(0))
+        {
 
             RaycastHit hit;
             Ray ray = physicsCamera.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out hit)) {
+            if (Physics.Raycast(ray, out hit))
+            {
 
                 //basic set start
                 Vector3 v3HitPos = hit.point - hit.transform.position;
@@ -76,119 +76,75 @@ public class GameManager : MonoBehaviour {
             return;
         }
 
-        if (Input.GetMouseButtonDown(0)) {
-            MousePress();
-        }
-
-        if (Input.GetMouseButton(0)) {
+        if (Input.GetMouseButton(0))
+        {
             MouseHold();
         }
 
-        if (Input.GetMouseButtonUp(0)) {
-            if (_moveAmout < 0.2f && !_isEditing && _onMain)
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (_moveAmount < 0.2f && !_selectedUnit && _onMain)
                 touch = true;
-            //MouseRelease();
-        }
-
-    }
-
-    void MousePress() {
-
-        transform.eulerAngles = trCameraSet.eulerAngles;
-
-        _moveAmout = 0;
-
-        RaycastHit hit;
-        Ray ray = physicsCamera.ScreenPointToRay(Input.mousePosition);
-
-        if (Physics.Raycast(ray, out hit)) {
-            Vector3 v3HitPos = hit.point - hit.transform.position;
-
-            _referenceAngle = Mathf.Atan2(v3HitPos.z, v3HitPos.x) * Mathf.Rad2Deg;
-
+            _moveAmount = -1;
         }
 
     }
 
     void MouseHold() {
 
+        if (!CalcNowAngle(out float angle)) return;
+
+        if (_moveAmount == -1) {
+            _referenceAngle = angle;
+            _moveAmount = 0;
+        }
+
+        float rotateFactor = angle - _referenceAngle;
+
+        if (rotateFactor > 180) rotateFactor -= 360;
+        else if (rotateFactor < -180) rotateFactor += 360; 
+
+        rbCameraSet.angularVelocity = Vector3.up * rotateFactor;
+        _moveAmount += Mathf.Abs(rotateFactor);
+
+        _referenceAngle = angle;
+
+    }
+
+    bool CalcNowAngle(out float angle)
+    {
         RaycastHit hit;
         Ray ray = physicsCamera.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out hit)) {
-
-            //basic set start
+        if (Physics.Raycast(ray, out hit) && !hit.collider.CompareTag("Wall")) {
             Vector3 v3HitPos = hit.point - hit.transform.position;
-
-            //basic set end
-            if (!hit.collider.CompareTag("Wall")) {
-
-                float angle = Mathf.Atan2(v3HitPos.z, v3HitPos.x) * Mathf.Rad2Deg;
-
-                float rotateFactor = angle - _referenceAngle;
-
-                if (rotateFactor > 180) {
-                    rotateFactor -= 360;
-                }
-                else if (rotateFactor < -180) {
-                    rotateFactor += 360;
-                }
-
-                rbCameraSet.angularVelocity = Vector3.up * rotateFactor;
-
-                _moveAmout += Mathf.Abs(rotateFactor);
-
-                _referenceAngle = angle;
-
-            }
+            angle = Mathf.Atan2(v3HitPos.z, v3HitPos.x) * Mathf.Rad2Deg;
+            return true;
 
         }
 
+        angle = 0;
+        return false;
     }
 
-    void MouseRelease() {
-
-        RaycastHit hit;
-
-        bool isHIt = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit);
-
-        return;
-
-        if (isHIt && hit.collider.CompareTag("Object")) {
-            //Check Edit Mode
-
-            if (_isEditing) {
-                _selectedUnit = hit.collider.gameObject.GetComponent<Unit>();
-
-            }
-            else {
-                _selectedUnit = null;
-                Debug.Log("Yatta");
-
-            }
-
-        }
-
-    }
-
-    public void StartEditing(Unit selected, int price) {
-        _isEditing = true;
-        money -= price;
+    public void StartEditing(Unit selected, int price)
+    {
         _selectedUnit = selected;
+        money -= price;
         _unitPrice = price;
         transform.eulerAngles = trCameraSet.eulerAngles;
     }
 
     public void EndEdit()
     {
-        _isEditing = false;
+        _selectedUnit = null;
         _onMain = true;
     }
 
-    public void UndoBuy() {
-        _isEditing = false;
-        _onMain = true;
+    public void UndoBuy()
+    {
         Destroy(_selectedUnit.gameObject);
+        EndEdit();
         money += _unitPrice;
     }
 
