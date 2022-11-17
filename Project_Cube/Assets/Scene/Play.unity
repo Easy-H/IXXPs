@@ -791,9 +791,7 @@ MonoBehaviour:
   _planetTheme: 0
   _moneyText: {fileID: 900874239}
   trCameraSet: {fileID: 1241919440}
-  trCollider: {fileID: 449148861}
   rbCameraSet: {fileID: 460447652}
-  physicsCamera: {fileID: 350517800}
 --- !u!20 &350517800
 Camera:
   m_ObjectHideFlags: 0
@@ -2558,7 +2556,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 3, y: 3}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &723703714
 MonoBehaviour:
@@ -3806,7 +3804,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2087926343}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.25
+  m_Size: 0.125
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7076,7 +7074,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.25, y: 1}
+  m_AnchorMax: {x: 0.125, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
