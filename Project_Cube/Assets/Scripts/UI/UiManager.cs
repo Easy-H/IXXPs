@@ -4,16 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class UiManager : MonoBehaviour {
-
-    public static UiManager Instance { get; private set; }
+public class UIManager : MonoSingleton<UIManager> {
     
     [SerializeField] UiAnimationGenerator[] actions = null;
 
     [SerializeField] Image[] panels;
-
-    [SerializeField] Image _messageBox;
-    [SerializeField] Text _message;
 
     public void ClosePanel(int i)
     {
@@ -21,29 +16,16 @@ public class UiManager : MonoBehaviour {
 
     }
 
-    public void PrintMessage(string message)
+    public void PrintMessage(string key)
     {
-        _messageBox.gameObject.SetActive(true);
-        _message.text = message;
-
-        Invoke("PopMessage", 1f);
-
-    }
-
-
-    void PopMessage()
-    {
-        _messageBox.gameObject.SetActive(false);
+        GUIMessageBox messageBox = AssetOpenManager.Import<GUIMessageBox>("Assets/Prefabs/MessageBox.prefab", "Canvas");
+        messageBox.SetMessage(key);
 
     }
 
     public void OpenPanel(int i)
     {
         panels[i].gameObject.SetActive(true);
-    }
-
-    private void Start() {
-        Instance = this;
     }
 
     public void StartAnimation(int i) {

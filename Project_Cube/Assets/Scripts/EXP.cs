@@ -28,7 +28,7 @@ public class EXP : MonoBehaviour
         if (_needExp[_level] <= _expAmount) {
             _level++;
             _levelText.text = (_level).ToString();
-            ShopButton.LevelUp();
+            ShopManager.Instance.LevelUp();
         }
 
         float t = (float)(_expAmount - _needExp[_level - 1]) / (float)(_needExp[_level] - _needExp[_level - 1]);

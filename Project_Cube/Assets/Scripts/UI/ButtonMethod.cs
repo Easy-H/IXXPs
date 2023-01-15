@@ -7,16 +7,11 @@ public class ButtonMethod : MonoBehaviour {
 
     public void OpenPanel(int i)
     {
-        UiManager.Instance.OpenPanel(i);
+        UIManager.Instance.OpenPanel(i);
     }
     public void ClosePanel(int i) {
-        UiManager.Instance.ClosePanel(i);
+        UIManager.Instance.ClosePanel(i);
     }
-
-    public void PrintMessage(string message) {
-        UiManager.Instance.PrintMessage(message);
-    }
-
 
     public void NotOnMain()
     {

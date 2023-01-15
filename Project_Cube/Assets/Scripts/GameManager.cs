@@ -9,9 +9,7 @@ public enum Theme {
     Green, Yellow, White
 }
 
-public class GameManager : MonoBehaviour {
-
-    public static GameManager Instance { get; private set; }
+public class GameManager : MonoSingleton<GameManager> {
 
     public bool _onMain = true;
 
@@ -35,14 +33,6 @@ public class GameManager : MonoBehaviour {
     float _referenceAngle;
     float _moveAmount;
 
-    // Use this for initialization
-    void Awake()
-    {
-        ShopButton.shops = new List<ShopButton>();
-        Instance = this;
-
-    }
-
     private void Start()
     {
         physicsCamera = gameObject.GetComponent<Camera>();
@@ -62,15 +52,17 @@ public class GameManager : MonoBehaviour {
 
             RaycastHit hit;
             Ray ray = physicsCamera.ScreenPointToRay(Input.mousePosition);
+            Debug.Log("REady");
 
             if (Physics.Raycast(ray, out hit))
             {
-
                 //basic set start
                 Vector3 v3HitPos = hit.point - hit.transform.position;
 
                 _selectedUnit.transform.position = v3HitPos.normalized * 3.5f;
                 _selectedUnit.transform.up = v3HitPos.normalized;
+
+                Debug.Log(v3HitPos);
 
             }
             return;

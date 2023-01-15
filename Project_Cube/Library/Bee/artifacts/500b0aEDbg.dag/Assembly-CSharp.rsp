@@ -27,6 +27,7 @@
 -define:UNITY_2021_2_OR_NEWER
 -define:UNITY_2021_3_OR_NEWER
 -define:UNITY_INCLUDE_TESTS
+-define:UNITY_ANALYTICS
 -define:USE_SEARCH_ENGINE_API
 -define:USE_SEARCH_TABLE
 -define:USE_SEARCH_MODULE
@@ -360,6 +361,7 @@
 -r:"Library/Bee/artifacts/500b0aEDbg.dag/UnityEngine.XR.LegacyInputHelpers.ref.dll"
 "Assets/DownLoad Asset/LowPoly Assets/Demo/low-poly-water/Scripts/Water.cs"
 "Assets/DownLoad Asset/LowPoly Assets/Demo/Scripts/SimpleCameraController.cs"
+"Assets/Scripts/AssetOpenManager.cs"
 "Assets/Scripts/Dummy/SetAxis.cs"
 "Assets/Scripts/Dummy/UnitSelect.cs"
 "Assets/Scripts/Dummy/Zone.cs"
@@ -369,12 +371,18 @@
 "Assets/Scripts/Interaction/EarnData.cs"
 "Assets/Scripts/Interaction/FactoryCloud.cs"
 "Assets/Scripts/Interaction/Rotate.cs"
+"Assets/Scripts/MonoSingleton.cs"
+"Assets/Scripts/StringManager.cs"
 "Assets/Scripts/TimeSet.cs"
 "Assets/Scripts/UI/ButtonMethod.cs"
+"Assets/Scripts/UI/GUI/GUIMessageBox.cs"
+"Assets/Scripts/UI/GUI/GUIShop.cs"
+"Assets/Scripts/UI/NewText.cs"
 "Assets/Scripts/UI/ShopButton.cs"
 "Assets/Scripts/UI/UiAnimationGenerator.cs"
-"Assets/Scripts/UI/UiManager.cs"
+"Assets/Scripts/UI/UIManager.cs"
 "Assets/Scripts/Unit.cs"
+"Assets/Scripts/UnitManager.cs"
 -langversion:9.0
 
 /deterministic
