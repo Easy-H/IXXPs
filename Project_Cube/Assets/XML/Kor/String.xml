@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <StringData>
-	<String name="NeedMoreMoney" value="돈이&#10;없엉" />
+	<String name="NeedMoreMoney" value="돈이 부족합니다" />
+	<String name="NeedMoreLevel" value="레벨이 부족합니다" />
+  
+  <!--MessageBox String-->
+  <String name="MessageBox_Okay" value="확인" />
+  
+  <!--Unit Name-->
 </StringData>
+<!--띄어쓰기가 필요한 경우 -> &#10;-->

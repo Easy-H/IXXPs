@@ -32,6 +32,7 @@ public class UiAnimationGenerator {
     [SerializeField] UiAnimation[] animations = null;
 
     int _actnum = 0;
+    /*
 
     public void Action() {
         if (_actnum >= animations.Length) {
@@ -70,7 +71,7 @@ public class UiAnimationGenerator {
             }
         }
 
-    }
+    }*/
 
     IEnumerator FillImage(Image panel, float goalFill,  float time) {
 
@@ -90,7 +91,7 @@ public class UiAnimationGenerator {
         }
         panel.fillAmount = goalFill;
 
-        Action();
+        //Action();
 
     }
 
@@ -107,7 +108,7 @@ public class UiAnimationGenerator {
 
         }
 
-        Action();
+        //Action();
 
     }
 
@@ -135,7 +136,7 @@ public class UiAnimationGenerator {
 
         target.color = new Color(target.color.r, target.color.r, target.color.r, goalAlpha);
 
-        Action();
+        //Action();
 
     }
 }

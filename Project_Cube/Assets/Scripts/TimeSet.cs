@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Analytics;
 
 public class TimeSet : MonoBehaviour {
 
@@ -13,10 +12,6 @@ public class TimeSet : MonoBehaviour {
 
     [SerializeField] float _maxLight;
     [SerializeField] float _minLight;
-
-    [SerializeField] Text _timeHourTenText;
-    [SerializeField] Text _timeHourOneText;
-    [SerializeField] Text _timeMinuteText;
 
     float _alpha;
 
@@ -41,12 +36,7 @@ public class TimeSet : MonoBehaviour {
 
         _gameTime = (timeAngle + 360) % 360;
 
-        int planetTime = (int)(_gameTime / 15);
-
-        _timeHourTenText.text = (planetTime / 10).ToString();
-        _timeHourOneText.text = (planetTime % 10).ToString();
-            
-        _timeMinuteText.text = (((int)((_gameTime % 15) * 0.4f))).ToString();
+        UIManager.Instance.InforBox.SetTimeText(_gameTime);
 
         Color color = _background.color;
 

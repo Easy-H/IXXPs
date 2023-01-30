@@ -25,18 +25,25 @@ public class StringManager : MonoSingleton<StringManager> {
 
     protected override void OnCreate()
     {
+        ReadStringFromXml(_nowLang);
+    }
+
+    public void ReadStringFromXml(string lang)
+    {
         _dic = new Dictionary<string, StringData>();
         XmlDocument xmlDoc = new XmlDocument();
-        xmlDoc.Load("Assets/XML/" + _nowLang + "/" + _fileName);
+        xmlDoc.Load("Assets/XML/" + lang + "/" + _fileName);
 
         XmlNodeList nodes = xmlDoc.SelectNodes("StringData/String");
 
-        for (int i = 0; i < nodes.Count; i++) { 
+        for (int i = 0; i < nodes.Count; i++)
+        {
             StringData stringData = new StringData();
             stringData.Read(nodes[i]);
 
             _dic.Add(stringData.name, stringData);
         }
+
     }
 
     public string GetStringByKey(string key) {

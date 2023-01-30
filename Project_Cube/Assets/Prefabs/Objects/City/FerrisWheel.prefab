@@ -258,7 +258,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4691080901026794}
-  - component: {fileID: 65764375633892378}
   - component: {fileID: 1759065617450907860}
   m_Layer: 0
   m_Name: FerrisWheel
@@ -287,19 +286,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &65764375633892378
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1410107875578102}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 2.4, z: 1}
-  m_Center: {x: 0, y: 1.2, z: 0}
 --- !u!114 &1759065617450907860
 MonoBehaviour:
   m_ObjectHideFlags: 0

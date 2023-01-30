@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8597913295964829076}
-  - component: {fileID: -6251049724885891084}
   - component: {fileID: 3680835341420742754}
   m_Layer: 0
   m_Name: DesertWell
@@ -45,19 +44,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &-6251049724885891084
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4807586791276938634}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3680835341420742754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -738,7 +724,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 433264, guid: 2fb6f5d47657319408dbd4f3e8412b4c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 433264, guid: 2fb6f5d47657319408dbd4f3e8412b4c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -746,23 +732,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 433264, guid: 2fb6f5d47657319408dbd4f3e8412b4c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.7044804
       objectReference: {fileID: 0}
     - target: {fileID: 433264, guid: 2fb6f5d47657319408dbd4f3e8412b4c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.060888074
       objectReference: {fileID: 0}
     - target: {fileID: 433264, guid: 2fb6f5d47657319408dbd4f3e8412b4c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7071068
+      value: -0.7044804
       objectReference: {fileID: 0}
     - target: {fileID: 433264, guid: 2fb6f5d47657319408dbd4f3e8412b4c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.060888074
       objectReference: {fileID: 0}
     - target: {fileID: 433264, guid: 2fb6f5d47657319408dbd4f3e8412b4c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -9.88
       objectReference: {fileID: 0}
     - target: {fileID: 433264, guid: 2fb6f5d47657319408dbd4f3e8412b4c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y

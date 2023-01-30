@@ -10,7 +10,7 @@ public class Rotate : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//if (!GameManager.Instance._isEditing)
-			transform.Rotate (rotateFactor * Time.deltaTime);
+			transform.Rotate (rotateFactor * Time.deltaTime * GameManager.TimeScale);
 
 	}
 }

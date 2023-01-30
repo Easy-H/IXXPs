@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour {
 
     static T _instance;
@@ -14,7 +15,10 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour {
                 {
                     GameObject newInstance = new GameObject();
                     newInstance.name = "(Singleton)" + typeof(T).Name;
+#if UNITY_EDITOR
+#else
                     DontDestroyOnLoad(newInstance);
+#endif
 
                     _instance = newInstance.AddComponent<T>();
                 }

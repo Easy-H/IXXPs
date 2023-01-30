@@ -1,39 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NewText : MonoBehaviour
+[RequireComponent(typeof(CanvasRenderer))]
+[AddComponentMenu("UI/Legacy/NewText", 100)]
+public class NewText : Text
 {
     // Start is called before the first frame update
-    [SerializeField] string _key;
+    [SerializeField] protected string m_Key = String.Empty;
 
-    Text _text;
 
-    Text text {
-        get {
-            if (_text == null)
-            {
-                _text = GetComponent<Text>();
-                if (_text == null)
-                {
-                    _text = gameObject.AddComponent<Text>();
-                }
-            }
-
-            return _text;
-        }
-    }
-
-    void OnEnable()
+    override protected void OnEnable()
     {
-        SetText(_key);
+        //SetText(m_Key);
+        base.OnEnable();
     }
 
     public void SetText(string key)
     {
+        text = StringManager.Instance.GetStringByKey(key);
 
-        text.text = StringManager.Instance.GetStringByKey(_key);
-
+        if (text == string.Empty)
+            text = key;
+        
     }
 }

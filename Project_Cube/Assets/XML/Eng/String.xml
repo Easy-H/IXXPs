@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <StringData>
-	<String>
-		<name>NeedMoreMoney</name>
-		<value>Need More Money</value>
-	</String>
+  <String name="NeedMoreMoney" value="Need More Money" />
+  <String name="NeedMoreLevel" value="Need More Level" />
+  
+  <!--MessageBox String-->
+  <String name="MessageBox_Okay" value="OK" />
+  
+  <!--Unit Name-->
+  
 </StringData>
