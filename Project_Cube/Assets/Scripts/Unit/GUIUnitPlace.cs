@@ -35,6 +35,8 @@ public class GUIUnitPlace : GUIFullScreen {
 
                 Vector3 v3HitPos = hit.point - hit.transform.position;
 
+                //Debug.Log(hit.transform.tag);
+
                 _selectedUnit.transform.position = v3HitPos.normalized * 3.5f;
                 _selectedUnit.transform.up = v3HitPos.normalized;
 

@@ -1,38 +1,80 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
-using UnityEngine.UI;
+using static ShopManager;
 
-public class EXP : MonoBehaviour
+public class EXP : MonoSingleton<EXP>, ISubject
 {
-    public static EXP Instance { get; private set; }
+    List<IObserver> observers = new List<IObserver>();
+    public List<int> _needEXP = new List<int>();
 
-    [SerializeField] Text _levelText;
-    [SerializeField] Image _fillNextLevel;
     public int _level = 1;
 
-    [SerializeField] int[] _needExp;
     int _expAmount = 0;
+    public class EXPData {
+        internal int level;
+        internal int needEXPToLevelUp;
 
-    private void Awake()
+        public void Read(XmlNode node)
+        {
+            level = int.Parse(node.Attributes["level"].Value);
+            needEXPToLevelUp = int.Parse(node.Attributes["needEXP"].Value);
+        }
+    }
+    protected override void OnCreate()
     {
-        Instance = this;
-        float t = (float)(_expAmount - _needExp[_level - 1]) / (float)(_needExp[_level] - _needExp[_level - 1]);
+        _needEXP = new List<int>();
+        XmlDocument xmlDoc = new XmlDocument();
+        xmlDoc.Load("Assets/XML/LevelEXPInfor.xml");
 
-        _fillNextLevel.fillAmount = t;
+        XmlNodeList nodes = xmlDoc.SelectNodes("LevelData/Level");
+
+        for (int i = 0; i < nodes.Count; i++)
+        {
+            EXPData expData = new EXPData();
+            expData.Read(nodes[i]);
+
+            _needEXP.Add(expData.needEXPToLevelUp);
+        }
     }
 
     public void AddExp(int amount) {
         _expAmount += amount;
 
-        if (_needExp[_level] <= _expAmount) {
+        if (_needEXP[_level] <= _expAmount) {
             _level++;
-            _levelText.text = (_level).ToString();
         }
 
-        float t = (float)(_expAmount - _needExp[_level - 1]) / (float)(_needExp[_level] - _needExp[_level - 1]);
-
-        _fillNextLevel.fillAmount = t;
+        Notify();
     }
 
+    public int GetLevel() {
+        return _level;
+    }
+    public int GetNowExpAmount() {
+        return _expAmount - _needEXP[_level - 1];
+    }
+
+    public int GetNeedExpAmount() {
+        return (_needEXP[_level] - _needEXP[_level - 1]);
+    }
+
+    public void RegisterObserver(IObserver observer)
+    {
+        observers.Add(observer);
+    }
+
+    public void RemoveObserver(IObserver observer)
+    {
+        observers.Remove(observer);
+    }
+
+    public void Notify()
+    {
+        foreach (var observer in observers)
+        {
+            observer.UpdateData();
+        }
+    }
 }

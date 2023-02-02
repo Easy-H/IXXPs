@@ -42,7 +42,7 @@ public class UnitDataManager : MonoSingleton<UnitDataManager>
     public static Unit CreateUnit(string key)
     {
         string path = Instance._dic[key].prefabPath;
-        Unit result = AssetOpenManager.Import<Unit>(path);
+        Unit result = AssetOpener.Import<Unit>(path);
 
         return result;
     }

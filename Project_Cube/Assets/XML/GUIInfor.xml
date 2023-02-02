@@ -3,6 +3,7 @@
 	<GUIData name="MessageBox"	path="Assets/Prefabs/GUI_MessageBox.prefab" />
 	<GUIData name="Shop"		path="Assets/Prefabs/GUI_Shop.prefab" />
 	<GUIData name="UnitPlace"	path="Assets/Prefabs/GUI_UnitPlace.prefab" />
+  <GUIData name="LevelBox"	path="Assets/Prefabs/GUI_LevelBox.prefab" />
 	
 	
 </GUIInfor>
