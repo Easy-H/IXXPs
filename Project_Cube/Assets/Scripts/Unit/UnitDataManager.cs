@@ -46,6 +46,10 @@ public class UnitDataManager : MonoSingleton<UnitDataManager>
 
         return result;
     }
+    public static string GetStringKey(string key)
+    {
+        return Instance._dic[key].stringKey;
+    }
     public static string GetSpriteKey(string key) {
         return Instance._dic[key].img;
     }

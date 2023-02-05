@@ -45,10 +45,13 @@ public class GUIInforBox : GUIPopUp {
     [SerializeField] Text _timeHourOneText;
     [SerializeField] Text _timeMinuteText;
 
-    void Start() {
+
+    protected override void Open()
+    {
         UIManager.Instance.InforBox = this;
         _levelBox.Attach();
         _levelText.Attach();
+
     }
 
     public void SetTimeText(float gameTime) {

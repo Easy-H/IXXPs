@@ -10,7 +10,7 @@ public class GUIShop : GUIPopUp {
 
     static readonly float GridSize = 0.4f;
 
-    [SerializeField] ShopButton _shopUnit;
+    [SerializeField] GUIShopUnit _shopUnit;
 
     [SerializeField] RectTransform _shopUnitContainer;
 
@@ -33,7 +33,7 @@ public class GUIShop : GUIPopUp {
         float gridSize = 1f / count;
 
         for (int i = 0; i < count; i++) {
-            ShopButton shopButton = CreateShopUnit(i * gridSize, (i + 1) * gridSize);
+            GUIShopUnit shopButton = CreateShopUnit(i * gridSize, (i + 1) * gridSize);
             ShopManager.ShopData shopData = ShopManager.Instance._list[i];
 
             shopButton.Set(shopData.unitCode, shopData.price, shopData.level);
@@ -48,9 +48,9 @@ public class GUIShop : GUIPopUp {
 
     }
 
-    ShopButton CreateShopUnit(float startAt, float endAt)
+    GUIShopUnit CreateShopUnit(float startAt, float endAt)
     {
-        ShopButton shopUnit = Instantiate(_shopUnit, _shopUnitContainer);
+        GUIShopUnit shopUnit = Instantiate(_shopUnit, _shopUnitContainer);
 
         RectTransform rect = shopUnit.GetComponent<RectTransform>();
 

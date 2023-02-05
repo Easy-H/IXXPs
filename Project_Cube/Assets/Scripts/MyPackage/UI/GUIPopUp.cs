@@ -14,8 +14,14 @@ public class GUIPopUp : GUIWindow
 
         RectTransform rect = gameObject.GetComponent<RectTransform>();
 
-        rect.SetParent(UIManager.Instance.NowPopUp.transform);
+        UIManager.Instance.NowPopUp.AddPopUp(this);
         rect.offsetMax = Vector3.zero;
         rect.offsetMin = Vector3.zero;
+    }
+
+    public override void Close()
+    {
+        UIManager.Instance.NowPopUp.ClosePopUP(this);
+        base.Close();
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ShopManager : MonoSingleton<ShopManager> {
 
-    public List<ShopButton> shops = new List<ShopButton>();
+    public List<GUIShopUnit> shops = new List<GUIShopUnit>();
 
     public class ShopData {
         internal string unitCode;

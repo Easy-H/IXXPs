@@ -386,7 +386,7 @@
 "Assets/Scripts/MyPackage/UI/UiAnimationGenerator.cs"
 "Assets/Scripts/MyPackage/UI/UIManager.cs"
 "Assets/Scripts/Shop/GUIShop.cs"
-"Assets/Scripts/Shop/ShopButton.cs"
+"Assets/Scripts/Shop/GUIShopUnit.cs"
 "Assets/Scripts/Shop/ShopManager.cs"
 "Assets/Scripts/TimeSet.cs"
 "Assets/Scripts/Unit/GUIUnitPlace.cs"

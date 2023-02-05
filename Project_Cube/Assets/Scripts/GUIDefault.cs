@@ -13,6 +13,7 @@ public class GUIDefault : GUIFullScreen {
     float _referenceAngle;
     float _moveAmount;
 
+    public bool _ableTouch;
 
     private void Start()
     {
@@ -33,9 +34,11 @@ public class GUIDefault : GUIFullScreen {
 
         if (Input.GetMouseButtonUp(0))
         {
-            if (_moveAmount < 0.2f)
+            //GameManager.TimeScale = 1f;
+            if (_moveAmount < 0.2f && _ableTouch && _underPopUps.Count < 1)
             {
                 GameManager.touch = true;
+                _ableTouch = false;
             }
             _moveAmount = -1;
         }
@@ -47,10 +50,14 @@ public class GUIDefault : GUIFullScreen {
 
         if (!CalcNowAngle(out float angle)) return;
 
+        //GameManager.TimeScale = 0f;
+
         if (_moveAmount == -1)
         {
             _referenceAngle = angle;
             _moveAmount = 0;
+
+            _ableTouch = (_underPopUps.Count < 1);
         }
 
         float rotateFactor = angle - _referenceAngle;

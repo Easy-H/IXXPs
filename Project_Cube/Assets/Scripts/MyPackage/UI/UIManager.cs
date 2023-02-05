@@ -42,9 +42,13 @@ public class UIManager : MonoSingleton<UIManager> {
 
     public void Pop()
     {
+        InforBox.transform.SetParent(null);
+
         NowPopUp = uiStack[uiStack.Count - 1];
         uiStack.RemoveAt(uiStack.Count - 1);
         NowPopUp.gameObject.SetActive(true);
+
+        InforBox.transform.SetParent(NowPopUp.transform);
 
     }
 
