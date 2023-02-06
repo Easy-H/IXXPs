@@ -5,78 +5,43 @@
 		_MainTex("Main Texture", 2D) = "white" {}
 		_Color("Main Tex Color", Color) = (1,1,1,1)
 		_BumpMap("NormalMap", 2D) = "bump" {}
-
-		_Outline_Bold("Outline Bold", Range(0, 1)) = 0.1
+		
+		_OutLineColor("Outline Color", Color) = (0, 0, 0, 0)
+		_OutLineWidth("Outline Bold", Range(0, .1)) = 0.1
 
 		_Band_Tex("Band LUT", 2D) = "white" {}
 	}
 		SubShader
 	{
 		Tags { "RenderType" = "Opaque" }
+			LOD 200
 
-		cull front    //! 1Pass는 앞면을 그리지 않는다.
-		Pass
-		{
+			cull front
 			CGPROGRAM
-			#pragma vertex _VertexFuc
-			#pragma fragment _FragmentFuc
-			#include "UnityCG.cginc"
+			#pragma surface surf NoLight vertex:vert noshadow noambient
+			#pragma target 3.0
 
-				struct ST_VertexInput    //! 버텍스 쉐이더 Input
-				{
-					float4 vertex : POSITION;
-					float3 normal : NORMAL;
-				};
+			float4 _OutLineColor;
+			float _OutLineWidth;
 
-				struct ST_VertexOutput    //! 버텍스 쉐이더 Output
-				{
-					float4 vertex : SV_POSITION;
-				};
+			void vert(inout appdata_full v) {
+				v.vertex.xyz += v.normal.xyz * _OutLineWidth;
+			}
 
-				float _Outline_Bold;
+			struct Input
+			{
+				float4 color;
+			};
 
-				float4 CreateOutline(float4 vertPos, float Outline)
-				{
-					// 행렬 중에 크기를 조절하는 부분만 값을 넣는다.
-					// 밑의 부가 설명 사진 참고.
-					float4x4 scaleMat;
-					scaleMat[0][0] = 1.0f + Outline;
-					scaleMat[0][1] = 0.0f;
-					scaleMat[0][2] = 0.0f;
-					scaleMat[0][3] = 0.0f;
-					scaleMat[1][0] = 0.0f;
-					scaleMat[1][1] = 1.0f + Outline;
-					scaleMat[1][2] = 0.0f;
-					scaleMat[1][3] = 0.0f;
-					scaleMat[2][0] = 0.0f;
-					scaleMat[2][1] = 0.0f;
-					scaleMat[2][2] = 1.0f + Outline;
-					scaleMat[2][3] = 0.0f;
-					scaleMat[3][0] = 0.0f;
-					scaleMat[3][1] = 0.0f;
-					scaleMat[3][2] = 0.0f;
-					scaleMat[3][3] = 1.0f;
+			void surf(Input IN, inout SurfaceOutput o)
+			{
 
-					return mul(scaleMat, vertPos);
-				}
+			}
 
-				ST_VertexOutput _VertexFuc(ST_VertexInput stInput)
-				{
-					ST_VertexOutput stOutput;
-
-					stOutput.vertex = UnityObjectToClipPos(CreateOutline(stInput.vertex, _Outline_Bold));
-
-					return stOutput;
-				}
-
-
-				float4 _FragmentFuc(ST_VertexOutput i) : SV_Target
-				{
-					return 0.0f;
-				}
-
+			float4 LightingNoLight(SurfaceOutput s, float3 lightDir, float atten) {
+				return float4(_OutLineColor.rgb, 1);
+			}
 			ENDCG
-		}
 
 		cull back    //! 2Pass는 뒷면을 그리지 않는다.
 		CGPROGRAM
