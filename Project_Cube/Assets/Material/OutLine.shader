@@ -20,7 +20,17 @@ Shader "Custom/OutLine"
             float _OutLineWidth;
 
             void vert(inout appdata_full v) {
-                v.vertex.xyz += v.normal.xyz * _OutLineWidth;
+                float3 newAdded = v.normal.xyz;
+                float3 forward = UNITY_MATRIX_IT_MV[2].xyz;
+                forward = forward * mul(forward, newAdded);
+                float3 vectorUp = v.normal.xyz;
+                float3 vectorRight = v.tangent.xyz;
+                float3 vectorForward = dot(vectorUp, vectorRight);
+                newAdded -= forward;
+                //v.vertex.xyz += newAdded * _OutLineWidth;
+                v.vertex.xyz += vectorUp * _OutLineWidth + vectorRight * _OutLineWidth + vectorForward * _OutLineWidth;
+                //v.vertex.xyz += forward;
+                //v.vertex.xyz += v.tangent.xyz * _OutLineWidth;
             }
 
             struct Input
