@@ -16,9 +16,11 @@ public class Unit : MonoBehaviour
     [SerializeField] int _earnMoney;
     [SerializeField] int _earnExp;
 
+    public string UnitCode;
+
     private void LateUpdate()
     {
-        bool state = (TimeSet.Instance.IsDay() == _activeOnDay);
+        bool state = (GameTime.Instance.IsDay() == _activeOnDay);
         
         for (int i = 0; i < _onActive.Length; i++)
         {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 using UnityEngine.U2D;
 using UnityEngine.UI;
 
@@ -69,6 +70,7 @@ public class GUIShopUnit : MonoBehaviour {
         }
         
         Unit created = UnitDataManager.CreateUnit(_unitCode);
+        created.UnitCode = _unitCode;
         created.transform.localScale = created.transform.localScale * Random.Range(.9f, 1.1f);
 
         UIManager.OpenGUI<GUIUnitPlace>("UnitPlace").StartEditing(created, _price);

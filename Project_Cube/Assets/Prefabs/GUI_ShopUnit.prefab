@@ -168,7 +168,6 @@ GameObject:
   - component: {fileID: 1254526734409349783}
   - component: {fileID: 1254526734409349777}
   - component: {fileID: 957202344}
-  - component: {fileID: 5910858801972184119}
   m_Layer: 5
   m_Name: GUI_ShopUnit
   m_TagString: Untagged
@@ -218,7 +217,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6d5ac5c10a25ff46bc1ec31f55326db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _img: {fileID: 1254526734628612181}
   _needLevelPanel: {fileID: 3678475373567710471}
   _canBuyColor: {r: 0.49019608, g: 0.7176471, b: 0.6784314, a: 1}
   _canNotBuyColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
@@ -228,18 +226,6 @@ MonoBehaviour:
   _atlas: {fileID: 100100200, guid: bc3211a090b0bdf44ac9b2597fb892ef, type: 3}
   _unitImage: {fileID: 486255809839068915}
   _canBuy: 0
---- !u!114 &5910858801972184119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1254526734409349782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fc102ecf1b4e8f499df6b4a460d967a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1254526734628612187
 GameObject:
   m_ObjectHideFlags: 0

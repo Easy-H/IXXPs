@@ -27,6 +27,7 @@
 -define:UNITY_2021_2_OR_NEWER
 -define:UNITY_2021_3_OR_NEWER
 -define:UNITY_INCLUDE_TESTS
+-define:UNITY_ANALYTICS
 -define:USE_SEARCH_ENGINE_API
 -define:USE_SEARCH_TABLE
 -define:USE_SEARCH_MODULE
@@ -358,7 +359,6 @@
 -r:"Library/Bee/artifacts/500b0aEDbg.dag/UnityEngine.SpatialTracking.ref.dll"
 -r:"Library/Bee/artifacts/500b0aEDbg.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/500b0aEDbg.dag/UnityEngine.XR.LegacyInputHelpers.ref.dll"
-"Assets/ButtonMethod.cs"
 "Assets/DownLoad Asset/LowPoly Assets/Demo/low-poly-water/Scripts/Water.cs"
 "Assets/DownLoad Asset/LowPoly Assets/Demo/Scripts/SimpleCameraController.cs"
 "Assets/Scripts/Dummy/SetAxis.cs"
@@ -366,8 +366,10 @@
 "Assets/Scripts/Dummy/Zone.cs"
 "Assets/Scripts/EXP.cs"
 "Assets/Scripts/GameManager.cs"
+"Assets/Scripts/GameTime.cs"
 "Assets/Scripts/GUIDefault.cs"
 "Assets/Scripts/GUILevelBox.cs"
+"Assets/Scripts/InstantiateSetter.cs"
 "Assets/Scripts/Interaction/Cloud.cs"
 "Assets/Scripts/Interaction/EarnData.cs"
 "Assets/Scripts/Interaction/FactoryCloud.cs"
@@ -387,10 +389,10 @@
 "Assets/Scripts/Shop/GUIShop.cs"
 "Assets/Scripts/Shop/GUIShopUnit.cs"
 "Assets/Scripts/Shop/ShopManager.cs"
-"Assets/Scripts/TimeSet.cs"
 "Assets/Scripts/Unit/GUIUnitPlace.cs"
 "Assets/Scripts/Unit/Unit.cs"
 "Assets/Scripts/Unit/UnitDataManager.cs"
+"Assets/Scripts/UnitSaveManager.cs"
 -langversion:9.0
 
 /deterministic

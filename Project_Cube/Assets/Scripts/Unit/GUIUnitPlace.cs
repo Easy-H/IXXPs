@@ -58,7 +58,10 @@ public class GUIUnitPlace : GUIFullScreen {
 
     public void EndEdit()
     {
+        UnitSaveManager.Instance.AddUnit(_selectedUnit);
+
         _selectedUnit = null;
+
         Close();
     }
 
@@ -67,7 +70,8 @@ public class GUIUnitPlace : GUIFullScreen {
         Destroy(_selectedUnit.gameObject);
         GameManager.money += _unitPrice;
 
-        EndEdit();
+        _selectedUnit = null;
+        Close();
     }
 
 }

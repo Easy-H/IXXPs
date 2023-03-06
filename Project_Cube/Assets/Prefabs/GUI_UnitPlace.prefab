@@ -88,7 +88,6 @@ GameObject:
   - component: {fileID: 6995945353896293932}
   - component: {fileID: 81630817108883767}
   - component: {fileID: 7279241194243665110}
-  - component: {fileID: 30909946809038613}
   m_Layer: 5
   m_Name: Accept
   m_TagString: Untagged
@@ -211,18 +210,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
---- !u!114 &30909946809038613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2115517124798620944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fc102ecf1b4e8f499df6b4a460d967a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3198811598422454543
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,7 +222,6 @@ GameObject:
   - component: {fileID: 7005785367718235981}
   - component: {fileID: 3419936859968761717}
   - component: {fileID: 8197207334221168177}
-  - component: {fileID: 6187959789053249834}
   m_Layer: 5
   m_Name: Undo
   m_TagString: Untagged
@@ -358,18 +344,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6187959789053249834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3198811598422454543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fc102ecf1b4e8f499df6b4a460d967a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5396323790778447130
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,7 +435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priority: 0
-  trCameraSet: {fileID: 0}
+  _underPopUps: []
 --- !u!1 &6324745611953256176
 GameObject:
   m_ObjectHideFlags: 0
